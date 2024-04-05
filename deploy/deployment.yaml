@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
         - name: service-cicd
-          imagePullPolicy: Never
+          imagePullPolicy: Always
           image: izaakdale/service-cicd:latest
           resources:
             limits:

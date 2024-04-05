@@ -14,6 +14,10 @@ func main() {
 	mux.Get("/ping", func(w http.ResponseWriter, r *http.Request) {
 		w.Write([]byte("pong"))
 	})
+	mux.Post("/greet/{name}", func(w http.ResponseWriter, r *http.Request) {
+		name := r.PathValue("name")
+		w.Write([]byte(fmt.Sprintf("hello %s\n", name)))
+	})
 
 	port := os.Getenv("PORT")
 	if port == "" {
