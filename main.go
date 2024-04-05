@@ -14,6 +14,11 @@ func main() {
 	mux.Get("/ping", func(w http.ResponseWriter, r *http.Request) {
 		w.Write([]byte("pong"))
 	})
+
+	mux.Get("/health", func(w http.ResponseWriter, r *http.Request) {
+		w.Write([]byte("healthy"))
+	})
+
 	mux.Post("/greet/{name}", func(w http.ResponseWriter, r *http.Request) {
 		name := r.PathValue("name")
 		w.Write([]byte(fmt.Sprintf("hello %s\n", name)))
