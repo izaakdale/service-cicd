@@ -28,5 +28,5 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ${{ steps.meta.outputs.tags }}
+          tags: izaakdale/service-cicd:latest
           labels: ${{ steps.meta.outputs.labels }}
