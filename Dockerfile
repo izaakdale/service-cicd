@@ -4,7 +4,7 @@ COPY . ./
 RUN go mod download
 
 
-RUN go build -o /service-cicd
+RUN GOARCH=arm64 go build -o /service-cicd
 
 
 FROM alpine
