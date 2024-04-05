@@ -24,5 +24,5 @@ func main() {
 		port = "80"
 	}
 
-	log.Fatal(http.ListenAndServe(fmt.Sprintf("%s:%s", os.Getenv("HOST"), os.Getenv("PORT")), mux))
+	log.Fatal(http.ListenAndServe(fmt.Sprintf("%s:%s", os.Getenv("HOST"), port), mux))
 }
