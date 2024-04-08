@@ -24,6 +24,10 @@ func main() {
 		w.Write([]byte(fmt.Sprintf("hello %s\n", name)))
 	})
 
+	mux.Get("/new", func(w http.ResponseWriter, r *http.Request) {
+		w.Write([]byte("new version handler"))
+	})
+
 	port := os.Getenv("PORT")
 	if port == "" {
 		port = "80"
