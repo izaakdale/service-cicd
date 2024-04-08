@@ -56,6 +56,6 @@ jobs:
           propertyPath: 'image.tag'
           value: ${{ steps.release.outputs.version }}
           branch: deployment/${{ steps.release.outputs.version }}
-          targetBranch: development
+          targetBranch: main
           createPR: true
           message: 'Update Image Version to ${{ steps.release.outputs.version }}'
