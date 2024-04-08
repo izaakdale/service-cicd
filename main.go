@@ -20,7 +20,7 @@ func main() {
 	})
 
 	mux.Get("/test", func(w http.ResponseWriter, r *http.Request) {
-		w.Write([]byte("new test"))
+		w.Write([]byte("updated test"))
 	})
 
 	mux.Post("/greet/{name}", func(w http.ResponseWriter, r *http.Request) {
