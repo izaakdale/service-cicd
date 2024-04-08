@@ -48,3 +48,14 @@ jobs:
           tags: izaakdale/service-cicd:${{ steps.release.outputs.version }}
           labels: ${{ steps.meta.outputs.labels }}
           platforms: linux/arm64
+
+      - name: Update Image Version in the related HelmChart values.yaml
+        uses: fjogeleit/yaml-update-action@main
+        with:
+          valueFile: 'deploy/helm/service/values.yaml'
+          propertyPath: 'image.tag'
+          value: ${{ steps.release.outputs.version }}
+          branch: deployment/${{ steps.release.outputs.version }}
+          targetBranch: development
+          createPR: true
+          message: 'Update Image Version to ${{ steps.release.outputs.version }}'
