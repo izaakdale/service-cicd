@@ -54,11 +54,13 @@ jobs:
         uses: fjogeleit/yaml-update-action@main
         with:
           valueFile: 'deploy/helm/service/values.yaml'
-          propertyPath: 'image.tag'
-          value: ${{ steps.release.outputs.version }}
-          repository: izaakdale/service-cicd
-          branch: deployment/${{ steps.release.outputs.version }}
+          branch: deployment/dev
           targetBranch: main
-          createPR: true
-          message: 'Update Image Version to ${{ steps.release.outputs.version }}'
-          token: ${{ secrets.GITHUB_TOKEN }}
+          createPR: 'true'
+          description: Test GitHub Action
+          message: 'Update All Images'
+          title: 'Version Updates'
+          changes: |
+            {
+              "image.tag": "${{ steps.release.outputs.version }}"
+            }
