@@ -60,6 +60,7 @@ jobs:
           description: Test GitHub Action
           message: 'Update All Images'
           title: 'Version Updates'
+          token: ${{ secrets.GITHUB_TOKEN }}
           changes: |
             {
               "image.tag": "${{ steps.release.outputs.version }}"
