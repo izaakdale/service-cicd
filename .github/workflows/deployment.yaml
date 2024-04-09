@@ -18,6 +18,8 @@ jobs:
     steps:
       - name: Check out the repo
         uses: actions/checkout@v4
+        with:
+          repository: izaakdale/service-cicd
 
       - id: release
         uses: rymndhng/release-on-push-action@master
@@ -55,6 +57,7 @@ jobs:
         with:
           valueFile: 'deploy/helm/service/values.yaml'
           branch: deployment/dev
+          repository: izaakdale/service-cicd
           targetBranch: main
           createPR: 'true'
           description: Test GitHub Action
