@@ -1,6 +1,7 @@
 name: Publish Docker image
 
 on:
+  workflow_dispatch:
   push:
     paths-ignore:
       - 'deploy/**'
@@ -55,7 +56,9 @@ jobs:
           valueFile: 'deploy/helm/service/values.yaml'
           propertyPath: 'image.tag'
           value: ${{ steps.release.outputs.version }}
+          repository: izaakdale/service-cicd
           branch: deployment/${{ steps.release.outputs.version }}
           targetBranch: main
           createPR: true
           message: 'Update Image Version to ${{ steps.release.outputs.version }}'
+          token: ${{ secrets.GITHUB_TOKEN }}
