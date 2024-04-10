@@ -51,20 +51,3 @@ jobs:
           tags: izaakdale/service-cicd:${{ steps.release.outputs.version }}
           labels: ${{ steps.meta.outputs.labels }}
           platforms: linux/arm64
-
-      - name: Update Image Version in the related HelmChart values.yaml
-        uses: fjogeleit/yaml-update-action@main
-        with:
-          valueFile: 'deploy/helm/service/values.yaml'
-          branch: deployment/dev
-          repository: izaakdale/service-cicd
-          targetBranch: main
-          createPR: 'true'
-          description: Test GitHub Action
-          message: 'Update All Images'
-          title: 'Version Updates'
-          token: ${{ secrets.GITHUB_TOKEN }}
-          changes: |
-            {
-              "image.tag": "${{ steps.release.outputs.version }}"
-            }
