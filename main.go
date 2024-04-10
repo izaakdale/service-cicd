@@ -32,6 +32,10 @@ func main() {
 		w.Write([]byte("new version handler"))
 	})
 
+	mux.Get("/another", func(w http.ResponseWriter, r *http.Request) {
+		w.Write([]byte("another new handler"))
+	})
+
 	port := os.Getenv("PORT")
 	if port == "" {
 		port = "80"
