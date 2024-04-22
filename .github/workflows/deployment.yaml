@@ -42,15 +42,15 @@ jobs:
         with:
           images: izaakdale/service-cicd:${{ steps.release.outputs.version }}
 
-      - name: Build and push Docker image
-        uses: docker/build-push-action@v5
-        with:
-          context: .
-          file: ./Dockerfile-arm
-          push: true
-          tags: izaakdale/service-cicd:${{ steps.release.outputs.version }}
-          labels: ${{ steps.meta.outputs.labels }}
-          platforms: linux/arm64
+      # - name: Build and push Docker image
+      #   uses: docker/build-push-action@v5
+      #   with:
+      #     context: .
+      #     file: ./Dockerfile-arm
+      #     push: true
+      #     tags: izaakdale/service-cicd:${{ steps.release.outputs.version }}
+      #     labels: ${{ steps.meta.outputs.labels }}
+      #     platforms: linux/arm64
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v5
