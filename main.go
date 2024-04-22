@@ -19,23 +19,6 @@ func main() {
 		w.Write([]byte("healthy"))
 	})
 
-	mux.Get("/test", func(w http.ResponseWriter, r *http.Request) {
-		w.Write([]byte("updated test"))
-	})
-
-	mux.Post("/greet/{name}", func(w http.ResponseWriter, r *http.Request) {
-		name := r.PathValue("name")
-		w.Write([]byte(fmt.Sprintf("hello %s\n", name)))
-	})
-
-	mux.Get("/new", func(w http.ResponseWriter, r *http.Request) {
-		w.Write([]byte("new version handler"))
-	})
-
-	mux.Get("/another", func(w http.ResponseWriter, r *http.Request) {
-		w.Write([]byte("another new handler"))
-	})
-
 	port := os.Getenv("PORT")
 	if port == "" {
 		port = "80"
