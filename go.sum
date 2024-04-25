@@ -1,2 +1,4 @@
 github.com/izaakdale/ittp v0.1.0 h1:3Ik36ly9qmiU5lr6yJpI1/uQiBaXYBqBaBDen4NhCyE=
 github.com/izaakdale/ittp v0.1.0/go.mod h1:wTKS7amVZ+k4Foh9NVwwSO8/GQ/ZL5yV86nSHW9hAJw=
+github.com/rs/cors v1.11.0 h1:0B9GE/r9Bc2UxRMMtymBkHTenPkHDv0CW4Y98GBY+po=
+github.com/rs/cors v1.11.0/go.mod h1:XyqrcTp5zjWr1wsJ8PIRZssZ8b/WMcMf71DJnit4EMU=
